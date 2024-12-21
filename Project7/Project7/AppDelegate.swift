@@ -10,10 +10,16 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if let tabBarController = window?.rootViewController as? UITabBarController {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NavController")
+            vc.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1)  // tabBarItem'da  .topRated: sistem tarafından en yüksek puanlu simgesini kullanmasını sağlar, bu sekmeye 1 tag i atanır. bu ögeyi tanımlamak ve erişmek için kullanılır. tag integer dır
+            tabBarController.viewControllers?.append(vc)
+        }
         return true
     }
 
