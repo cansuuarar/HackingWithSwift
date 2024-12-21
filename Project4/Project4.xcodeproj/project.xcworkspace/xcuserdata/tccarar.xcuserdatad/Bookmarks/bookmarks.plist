@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>top-level-items</key>
+	<array>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>0</string>
+					<key>EndingLineNumber</key>
+					<string>52</string>
+					<key>StartingColumnNumber</key>
+					<string>0</string>
+					<key>StartingLineNumber</key>
+					<string>51</string>
+					<key>Timestamp</key>
+					<string>756386571.130527</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Project4/ViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>       ac.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+</string>
+				<key>leading</key>
+				<string>        }
+        
+</string>
+				<key>trailing</key>
+				<string>        present(ac, animated: true)
+        
+    }
+</string>
+			</dict>
+			<key>title</key>
+			<string>popOver: ilgili bağlama tıkladığımızda içerik odaklı bir pencere açar</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>20</string>
+					<key>EndingLineNumber</key>
+					<string>96</string>
+					<key>StartingColumnNumber</key>
+					<string>1</string>
+					<key>StartingLineNumber</key>
+					<string>90</string>
+					<key>Timestamp</key>
+					<string>756387219.280611</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Project4/ViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string>loadView(): loadView() is called first, and it's where you create your view; viewDidLoad() is called second, and it's where you               configure the view that was loaded.
+ WKWebView
+ URL
+ URLRequest
+ UIToolBar
+ UIProgressView
+ Key-Value Observing</string>
+				<key>leading</key>
+				<string>
+/*
+ </string>
+				<key>trailing</key>
+				<string>
+ 
+ 
+</string>
+			</dict>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>24</string>
+					<key>EndingLineNumber</key>
+					<string>100</string>
+					<key>StartingColumnNumber</key>
+					<string>15</string>
+					<key>StartingLineNumber</key>
+					<string>100</string>
+					<key>Timestamp</key>
+					<string>756387416.377818</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Project4/ViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string></string>
+				<key>leading</key>
+				<string> 
+ **Escaping closures can be stored to be run later on, but no code runs once your program has finished because, well, your program has finished!
+ **You can use #selector</string>
+				<key>trailing</key>
+				<string> to point to a method in any object, as long as that method is marked @objc.
+ 
+ **URLs have their own specific data type in Swift, called URL.
+</string>
+			</dict>
+			<key>title</key>
+			<string>#selector</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+		<dict>
+			<key>destination</key>
+			<dict>
+				<key>location-parameters</key>
+				<dict>
+					<key>EndingColumnNumber</key>
+					<string>7</string>
+					<key>EndingLineNumber</key>
+					<string>102</string>
+					<key>StartingColumnNumber</key>
+					<string>3</string>
+					<key>StartingLineNumber</key>
+					<string>102</string>
+					<key>Timestamp</key>
+					<string>756387544.647945</string>
+				</dict>
+				<key>rebasable-url</key>
+				<dict>
+					<key>base</key>
+					<string>workspace</string>
+					<key>payload</key>
+					<dict>
+						<key>relative-path</key>
+						<string>Project4/ViewController.swift</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>text-context</key>
+			<dict>
+				<key>focused</key>
+				<string></string>
+				<key>leading</key>
+				<string> **You can use #selector to point to a method in any object, as long as that method is marked @objc.
+ 
+ **URLs</string>
+				<key>trailing</key>
+				<string> have their own specific data type in Swift, called URL.
+ 
+ **A web view's navigation delegate can control which pages should be loaded.
+</string>
+			</dict>
+			<key>title</key>
+			<string>URL</string>
+			<key>type</key>
+			<string>bookmark</string>
+		</dict>
+	</array>
+</dict>
+</plist>
