@@ -15,23 +15,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString: String
-        if navigationController?.tabBarItem.tag == 0 {
-            urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
-        } else {
-            urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
-        }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(creditButton))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search a word..", style: .plain, target: self, action: #selector(searchString))
-        
-        if let url =  URL(string: urlString){
-            if let data = try? Data(contentsOf: url) { //contentsOf ile url yi okur ve Data olarak döndürür
-                parseJson(json: data)
-                return
-            }
-        }
-        showError()
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
         
         
     }
@@ -44,45 +28,76 @@ class ViewController: UITableViewController {
     
     
     @objc func searchString() {
-        let ac = UIAlertController(title: "filter petition", message: nil, preferredStyle: .alert)
+        let ac = UIAlertController(title: "Enter a word", message: nil, preferredStyle: .alert)
         ac.addTextField()
         
-        let submitAction = UIAlertAction(title: "Enter a petition", style: .default, handler: {
+        let submitAction = UIAlertAction(title: "Enter a word", style: .default, handler: {
             [weak self, weak ac] action in
             guard let input = ac?.textFields?[0].text else { return }
-            self?.performSelector(inBackground: #selector(self?.submit(_:)), with: input)
-            //self?.submit(input: input)
+            self?.submit(input: input)
         })
         
         ac.addAction(submitAction)
         present(ac, animated: true)
     }
-   
-    @objc func submit(_ input: String) {
+    
+    func submit(input: String) {
         for petition in petitions {
             if petition.body.contains(input) {
                 filteredItems.insert(petition, at: 0)
                 petitions.removeAll()
                 petitions = filteredItems
+                tableView.reloadData()
                 
-                performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
-                //tableView.reloadData()
-               
             }
         }
+        
     }
     
-
-    func showError() {
+    @objc func fetchJSON() {
+        let urlString: String
+        if navigationController?.tabBarItem.tag == 0 {
+            urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
+        } else {
+            urlString = "https://www.hackingwithswift.com/samples/petitions-2.json"
+        }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Credits", style: .plain, target: self, action: #selector(creditButton))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Search a word..", style: .plain, target: self, action: #selector(searchString))
+        
+        
+        if let url =  URL(string: urlString){
+            if let data = try? Data(contentsOf: url) { //contentsOf ile url yi okur ve Data olarak döndürür
+                parseJson(json: data)
+                return
+            }
+        }
+        
+        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
+    }
+    
+    
+    @objc func showError() {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed; please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
+    
     
     func parseJson(json: Data) {
         let decoder = JSONDecoder()
         if let jsonPetitions = try? decoder.decode(Petitions.self, from: json) {
             petitions = jsonPetitions.results
-            tableView.reloadData()
+            /*
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+            */
+            // or
+            
+            tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
+        } else {
+            performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
         }
         
     }
@@ -104,6 +119,7 @@ class ViewController: UITableViewController {
         vc.detailItem = petitions[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 }
 
